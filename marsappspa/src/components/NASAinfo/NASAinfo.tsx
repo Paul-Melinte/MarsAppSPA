@@ -1,6 +1,6 @@
 import React from "react";
-import { GenericInfo } from "./GenericInfo/GenerericInfo";
-import { InfoInterface } from "./GenericInfo/InfoInterface";
+import { GenericInfo } from "../GenericInfo/GenerericInfo";
+import { InfoInterface } from "../GenericInfo/InfoInterface";
 
 export const NASAinfo: React.FC = () => {
     const infoNasa: InfoInterface = {
