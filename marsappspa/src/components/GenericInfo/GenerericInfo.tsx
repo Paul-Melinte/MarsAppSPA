@@ -1,7 +1,8 @@
 import React from "react";
 import "./GenericInfo.css";
+import { InfoInterface } from "./InfoInterface";
 
-export const GenericInfo: React.FC<{info: {title: string, logo: string, firstParagraph:string, secondParagraph:string}}> = (props) => {
+export const GenericInfo: React.FC<{info: InfoInterface}> = (props) => {
     return (
         <div>
             <h1> {props.info.title} </h1>

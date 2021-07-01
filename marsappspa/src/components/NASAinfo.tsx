@@ -1,8 +1,9 @@
 import React from "react";
-import { GenericInfo } from "./GenerericInfo";
+import { GenericInfo } from "./GenericInfo/GenerericInfo";
+import { InfoInterface } from "./GenericInfo/InfoInterface";
 
 export const NASAinfo: React.FC = () => {
-    const infoNasa = {
+    const infoNasa: InfoInterface = {
         title: "NASA",
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg",
         firstParagraph: "The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.",

@@ -1,7 +1,7 @@
-import React from 'react';
-import './App.css';
-import { NASAinfo } from './components/NASAinfo';
-import { ClickCounter } from './components/ClickCounter';
+import React from "react";
+import "./App.css";
+import { NASAinfo } from "./components/NASAinfo";
+import { ClickCounter } from "./components/ClickCounter";
 function App() {
   return (
     <div className="App">
