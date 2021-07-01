@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ClickCounterContext } from "./ComplexClickCounter";
 
-export const ClickCounterButton: React.FC<{clickCount: number, setClickCount: React.Dispatch<React.SetStateAction<number>>}> = (props) => {
+export const ClickCounterButton: React.FC = () => {
+    const clickCounterContext = useContext(ClickCounterContext);
+    
     function incrementCounter() {
-        props.setClickCount(props.clickCount + 1);
+        clickCounterContext.setClickCount(clickCounterContext.clickCount + 1);
     } 
 
     return (
