@@ -50,7 +50,7 @@ export const MarsPhotos: React.FC = () => {
         setSelectedSol(event.target.value);
     }
 
-    async function handleSubmit() {
+    const getPhotoData = async () => {
         const photoData: any[] = await axios.get("http://localhost:8000/api/rovers/" 
                                     + selectedRover 
                                     + "/photos/"
@@ -59,7 +59,13 @@ export const MarsPhotos: React.FC = () => {
                                     + selectedSol);
         
         console.log(photoData);
-        setMarsPhotos(photoData.slice(0,5));
+        setMarsPhotos(photoData);
+    };
+
+
+    function handleSubmit(event: any) {
+        getPhotoData();
+        event.preventDefault();
     }
 
     return (
