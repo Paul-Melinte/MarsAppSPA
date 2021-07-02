@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Select from "react-select"
 import "./MarsPhotos.css"
+import { PhotoDisplay } from "../PhotoDisplay";
 
 export const MarsPhotos: React.FC = () => {
     const [roverSelectApiData, setRoverSelectApiData] = useState<any[]>([]);
@@ -10,7 +11,7 @@ export const MarsPhotos: React.FC = () => {
     const [selectedCamera, setSelectedCamera] = useState("");
     const [maxSol, setMaxSol] = useState(0);
     const [selectedSol, setSelectedSol] = useState(0);
-    const [MarsPhotos, setMarsPhotos] = useState<any[]>([]);
+    const [MarsPhotos, setMarsPhotos] = useState<string[]>([]);
 
     const getRoverData = async () => {
         const roverData = await axios.get("http://localhost:8000/api/rovers/");
@@ -51,15 +52,19 @@ export const MarsPhotos: React.FC = () => {
     }
 
     const getPhotoData = async () => {
-        const photoData: any[] = await axios.get("http://localhost:8000/api/rovers/" 
-                                    + selectedRover 
-                                    + "/photos/"
-                                    + selectedCamera 
-                                    + "?sol="
-                                    + selectedSol);
+        const photoData = await axios.get("http://localhost:8000/api/rovers/" 
+                                            + selectedRover 
+                                            + "/photos/"
+                                            + selectedCamera 
+                                            + "?sol="
+                                            + selectedSol);
         
         console.log(photoData);
-        setMarsPhotos(photoData);
+
+        const photoUrls: string[] = [];
+        photoData.data.forEach((photo: any) => photoUrls.push(photo.img_url));
+
+        setMarsPhotos(photoUrls);
     };
 
 
@@ -69,6 +74,7 @@ export const MarsPhotos: React.FC = () => {
     }
 
     return (
+        <div>
         <form className="Mars-form" onSubmit={handleSubmit}>
             <label>
                 Select Rover:
@@ -84,5 +90,7 @@ export const MarsPhotos: React.FC = () => {
             </label>
             <input type="submit" value="Get Mars photos" />
         </form>
+        <PhotoDisplay photos={MarsPhotos}/>
+        </div>
     );
 }
