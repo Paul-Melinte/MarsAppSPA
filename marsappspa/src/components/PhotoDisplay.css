@@ -1,0 +1,10 @@
+.photoDisplay-photo {
+    height: 50vmin;
+    margin: 2vmin;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
