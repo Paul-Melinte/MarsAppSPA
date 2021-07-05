@@ -1,6 +1,6 @@
 export interface InfoInterface {
     title: string, 
-    logo: string, 
+    photo: string, 
     firstParagraph:string, 
     secondParagraph:string
 };

@@ -6,7 +6,7 @@ import { InfoInterface } from "../GenericInfo/InfoInterface";
 export const ApodInfo: React.FC = () => {
     const [ApodData, setApodData] = useState<InfoInterface>({
         title: "",
-        logo: "",
+        photo: "",
         firstParagraph: "",
         secondParagraph: ""
     });
@@ -16,7 +16,7 @@ export const ApodInfo: React.FC = () => {
 
         setApodData({
             title: ApodRes.data.title,
-            logo: ApodRes.data.url,
+            photo: ApodRes.data.url,
             firstParagraph: ApodRes.data.explanation,
             secondParagraph: ApodRes.data.copyright
         })
